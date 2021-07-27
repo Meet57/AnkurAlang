@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankur Enterprise</title>
+    <link rel="icon" href="img/logo.png" type="image/x-icon">
+    
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <!-- eff8e2,cecfc7,ada8b6,23022e,573280 -->
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="main-navbar navbar navbar-expand-sm navbar-dark">
+        <!-- Image and text -->
+        <nav class="navbar navbar-dark">
+          <a class="navbar-brand" href="index.php">
+            <img src="img/logo.png" width="35" height="35" class="d-inline-block align-top" alt="">
+            Ankur Enterprise
+          </a>
+        </nav>
+        <!-- Navbar Toogler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar list -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+            <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Products
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="products.php">Categories</a>
+                <div class="dropdown-divider"></div>
+                <?php
+                    include_once("assets/conn.php");
+                    $sql = "SELECT Name FROM `category`";
+                    $result = $conn->query($sql);
+
+                    while($row = $result->fetch_assoc()) {
+                        ?>
+                            <a class="dropdown-item" href="searchCategory.php?cat=<?php echo $row["Name"];?>"><?php echo $row["Name"];?></a>
+                        <?php
+                    }
+                ?>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="enquiry.php">Enquiry</a></li>
+          </ul>
+        </div>
+      </nav>
+    <!-- Navbar over -->
+
+    <!-- --------------------------------------------------------------------------------------------------------- -->
+
+    <!-- Main container -->
+    <div class="container">
+        <div class ="row">
+            <ol class="col-12 breadcrumb">
+                <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="./products.php">Categories</a></li>
+                <li class="breadcrumb-item active"><?php echo $_GET["cat"] ?></li>
+            </ol>
+            <div class="col-12">
+               <h3><?php echo $_GET["cat"] ?></h3>
+               <hr>
+               <p class="text-justify">
+                   <?php
+                        include_once("assets/conn.php");
+                        $sql = "SELECT `Discription` FROM `category` WHERE Name ='".$_GET["cat"]."'";
+                        $result = $conn->query($sql);
+                        while($row = $result->fetch_assoc()){
+                            echo $row["Discription"];
+                        }
+
+                   ?>
+               </p>
+               <hr>
+            </div>
+        </div>
+        <div class="row row-content d-flex justify-content-around">
+
+                <?php
+                    $sql = "select * from products;";
+                    $result = $conn->query($sql);
+
+                    $rows = $result->fetch_all(MYSQLI_ASSOC);
+            
+                    $cn = array();
+                    if($result->num_rows > 0) {
+                        foreach ($rows[0] as $columnName => $value) {
+                            array_push($cn,$columnName);
+                        }
+                    }
+
+                    $sql = "select * from products where Category='".$_GET["cat"]."'";
+                    $result = $conn->query($sql);
+                    while($row = $result->fetch_assoc()){
+
+                        ?>
+                        
+                        <!-- Product -->
+                        <div class="card shadow-lg p-3 mb-5 col-10 col-sm-5 col-lg-3 m-sm-3 m-auto" style="width: 100%;">
+                            <div class="card-header">
+                                <b> 
+                                <?php 
+                                    if($row["Type"] == ""){
+                                        echo $row["Make"];
+                                    }else{
+                                        echo $row["Type"];
+                                    }
+                                ?>
+                                </b>
+                            </div>
+                            <a href="img/<?php echo $row["Image"]?>" class="mx-auto">
+                                <img src="img/<?php echo $row["Image"]?>" class="card-img-top img-fluid rounded" style="height: 200px; width: auto" alt="...">
+                            </a>
+                            <div class="card-body">
+                            <!-- <div class="d-none d-sm-block">
+                                <?php echo $row["Discription"]; ?>
+                            </div> -->
+                            <!-- Button trigger modal -->
+                                <div class="row">
+                                    <button type="button" class="btn btn-details col-12 col-sm-8 m-auto" data-toggle="modal" data-target="#exampleModal<?php echo $row["ID"]; ?>">
+                                        Info
+                                    </button>
+                                </div>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal<?php echo $row["ID"]; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModal<?php echo $row["ID"]; ?>Label" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModal<?php echo $row["ID"]; ?>Label">
+                                            <?php 
+                                                if($row["Type"] == ""){
+                                                    echo $row["Make"];
+                                                }else{
+                                                    echo $row["Type"];
+                                                }
+                                            ?>
+                                        </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="card-text"><?php echo $row["Discription"]?></p>
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <dl class="row">
+
+                                                        <?php
+                                                            foreach($cn as $col){
+                                                                if($col == "ID" or $col == "URL" or $col == "Type" or $col == "Discription" or $col == "Image"){ continue;  }
+                                                                if($row["$col"]!="NA" and $row["$col"]!="-99.00" and $row["$col"]!=""){
+                                                                    ?>
+                                                                        <dt class="col-12 col-sm-6"><?php echo $col ?></dt>
+                                                                        <dd class="col-6"><?php echo $row[$col]; ?></dd>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                        ?>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <form action="assets/productEnquiry.php" target="_blank" method="post" id="productEnquiry">
+                                                <input type="hidden" value="<?php echo $row["Category"]; ?>"  name="Category">
+                                                <input type="hidden" value="<?php echo $row["Model"]; ?>"  name="Model">
+                                                <input type="hidden" value="<?php echo $row["Type"]; ?>"  name="Type">
+                                                <input type="hidden" value="<?php echo $row["Make"];?>" name="Make">
+                                                <div class="input-group mb-3">
+                                                    <input type="number" class="form-control" name="Number" id="Number" placeholder="Your Number : " required>
+                                                    <div class="input-group-append">
+                                                        <button type="button" class="btn btn-outline-primary" value="submit" onclick="submit()">Enquiry</button>
+                                                    </div>
+                                                </div>
+                                            </form>   
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Product End -->
+                        <?php                
+                    }
+                    $conn->close();
+                ?>
+
+        </div>
+    </div>
+    <!-- End Container -->
+
+    <!-- --------------------------------------------------------------------------------------------------------- -->
+    
+    <!-- Footer -->
+    <?php
+      include_once("footer.php")
+    ?>
+
+    <!-- Form -->
+    <script>
+        function submit() {
+            document.getElementById("productEnquiry").submit();
+            document.getElementByName("Number").value = "";
+        }
+    </script>
+    <!--Bootstrap js-->
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

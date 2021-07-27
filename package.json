@@ -1,0 +1,21 @@
+{
+  "name": "ankur",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "animate.css": "^3.7.2",
+    "bootstrap": "^4.5.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.5.1",
+    "morphext": "^2.4.7",
+    "popper.js": "^1.16.1",
+    "swiper": "^6.1.1",
+    "wow.js": "^1.2.2"
+  }
+}
