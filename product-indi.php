@@ -138,37 +138,37 @@
     
           <div class="swiper-container gallery-top" style="margin-top: 20px">
 
-            <a style="color: black" href="amanda_angle/<?php echo $row['Name']?>_1.jpg"></a>
+            <a style="color: black" href="img/<?php echo $row['Name']?>_1.jpg"></a>
 
             <div class="swiper-wrapper">
 
               <div class="swiper-slide" >
-                <a style="color: black" href="amanda_angle/<?php echo $row['Name']?>_1.jpg">
-                  <img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px" src="amanda_angle/<?php echo $row['Name']?>_1.jpg" alt="as_7610w.jpg">
+                <a style="color: black" href="img/<?php echo $row['Name']?>_1.jpg">
+                  <img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px" src="img/<?php echo $row['Name']?>_1.jpg" alt="as_7610w.jpg">
                     <i style="font-size: 40px;z-index:10;position: relative;top:-470px;left: 20px " class="fa fa-search-plus"></i>
                 </a>
               </div>
 
               <div class="swiper-slide">
-                <a style="color: black" href="amanda_angle/<?php echo $row['Name']?>_2.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="amanda_angle/<?php echo $row['Name']?>_2.jpg" alt="as_7610w.jpg">
+                <a style="color: black" href="img/<?php echo $row['Name']?>_2.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="img/<?php echo $row['Name']?>_2.jpg" alt="as_7610w.jpg">
                   <i style="font-size: 40px;z-index:10;position: relative;top:-470px;left: 20px " class="fa fa-search-plus"></i>
                 </a>
               </div>
 
               <div class="swiper-slide">
-                <a style="color: black" href="amanda_angle/<?php echo $row['Name']?>_3.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="amanda_angle/<?php echo $row['Name']?>_3.jpg" alt="as_7610w.jpg">
+                <a style="color: black" href="img/<?php echo $row['Name']?>_3.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="img/<?php echo $row['Name']?>_3.jpg" alt="as_7610w.jpg">
                   <i style="font-size: 40px;z-index:10;position: relative;top:-470px;left: 20px " class="fa fa-search-plus"></i>
                 </a>
               </div>
 
               <div class="swiper-slide">
-                <a style="color: black" href="amanda_angle/<?php echo $row['Name']?>_4.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="amanda_angle/<?php echo $row['Name']?>_4.jpg" alt="as_7610w.jpg">
+                <a style="color: black" href="img/<?php echo $row['Name']?>_4.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="img/<?php echo $row['Name']?>_4.jpg" alt="as_7610w.jpg">
                   <i style="font-size: 40px;z-index:10;position: relative;top:-470px;left: 20px " class="fa fa-search-plus"></i>
                 </a>
               </div>
 
               <div class="swiper-slide">
-                <a style="color: black" href="amanda_angle/<?php echo $row['Name']?>_5.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="amanda_angle/<?php echo $row['Name']?>_5.jpg" alt="as_7610w.jpg">
+                <a style="color: black" href="img/<?php echo $row['Name']?>_5.jpg"><img class="product-indi-photo" style="height: 500px;border:2px solid black;border-radius: 20px;box-shadow: 10px 10px 10px 10px"" src="img/<?php echo $row['Name']?>_5.jpg" alt="as_7610w.jpg">
                   <i style="font-size: 40px;z-index:10;position: relative;top:-470px;left: 20px " class="fa fa-search-plus"></i>
                 </a>
               </div>
@@ -185,11 +185,11 @@
           <div class="swiper-container gallery-thumbs" style="margin-top: 10px">
             <div class="swiper-wrapper">
 
-          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="amanda_angle/<?php echo $row['Name']?>_1.jpg" alt="as_7610w.jpg"></div>
-          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="amanda_angle/<?php echo $row['Name']?>_2.jpg" alt="as_7610w.jpg"></div>
-          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="amanda_angle/<?php echo $row['Name']?>_3.jpg" alt="as_7610w.jpg"></div>
-          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="amanda_angle/<?php echo $row['Name']?>_4.jpg" alt="as_7610w.jpg"></div>
-          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="amanda_angle/<?php echo $row['Name']?>_5.jpg" alt="as_7610w.jpg"></div>
+          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="img/<?php echo $row['Name']?>_1.jpg" alt="as_7610w.jpg"></div>
+          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="img/<?php echo $row['Name']?>_2.jpg" alt="as_7610w.jpg"></div>
+          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="img/<?php echo $row['Name']?>_3.jpg" alt="as_7610w.jpg"></div>
+          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="img/<?php echo $row['Name']?>_4.jpg" alt="as_7610w.jpg"></div>
+          <div class="swiper-slide"><img class="product-indi-photo-1" style="height: 150px;border:2px solid black;border-radius: 20px" src="img/<?php echo $row['Name']?>_5.jpg" alt="as_7610w.jpg"></div>
 
             </div>
           </div>
